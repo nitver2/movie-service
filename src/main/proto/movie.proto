@@ -1,0 +1,39 @@
+//syntax = "proto3";
+//
+//package movie;
+//
+//option java_package = "com.example.grpc";
+//option java_outer_classname = "MovieServiceProto";
+//
+//message Movie {
+//  int32 movieId = 1;
+//  string title = 2;
+//  string language = 3;
+//  int32 duration = 4;
+//  string genre = 5;
+//  string posterUrl = 6;
+//  string trailerUrl = 7;
+//  string date = 8;
+//}
+//
+//message MovieRequest {
+//  int32 movieId = 1;
+//}
+//
+//message MovieResponse {
+//  Movie movie = 1;
+//}
+//
+//message AddMovieRequest {
+//  Movie movie = 1;
+//}
+//
+//message AddMovieResponse {
+//  string message = 1;
+//  Movie movie = 2;
+//}
+//
+//service MovieService {
+//  rpc GetMovie (MovieRequest) returns (MovieResponse);
+//  rpc AddMovie (AddMovieRequest) returns (AddMovieResponse);
+//}
