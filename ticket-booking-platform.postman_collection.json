@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "a5f3e163-f1b9-4874-abd8-40c548905a3b",
+		"name": "ticket-booking-platform",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6442917"
+	},
+	"item": [
+		{
+			"name": "movie-service",
+			"item": [
+				{
+					"name": "get movies by city",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/movie/agra?language=Hindi",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"movie",
+								"agra"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "Hindi"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add movie",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Shingham\",\n    \"language\": \"Hindi\",\n    \"duration\": 148,\n    \"genre\": \"Romance\",\n    \"poster_url\": \"http://example.com/inception.jpg\",\n    \"trailer_url\": \"http://example.com/inception-trailer.mp4\",\n    \"date\": \"2024-12-01T14:30:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/movie",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"movie"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "hall-service",
+			"item": [
+				{
+					"name": "add hall into threater",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"hall_id\": 8,\n    \"theater_id\": 4,\n    \"capacity\": 20\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/v1/hall",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"hall"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "theater-service",
+			"item": [
+				{
+					"name": "search theater by movieId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/api/v1/theatres/search/agra?movieId=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"v1",
+								"theatres",
+								"search",
+								"agra"
+							],
+							"query": [
+								{
+									"key": "movieId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "browse-service",
+			"item": [
+				{
+					"name": "get movies by filters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/agra?language=English&genre=Sci-Fi",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"agra"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "English"
+								},
+								{
+									"key": "genre",
+									"value": "Sci-Fi"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "seat-selection-service",
+			"item": [
+				{
+					"name": "get seats for show by showId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/api/v1/seat/15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"v1",
+								"seat",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add seat in the hall",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n         \"seat_id\": 61,\n         \"hall_id\": 4,\n         \"row_no\": 1,\n         \"seat_no\": 1\n\n     }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8084/api/v1/seat",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"v1",
+								"seat"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
