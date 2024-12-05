@@ -44,6 +44,29 @@ CREATE TABLE IF NOT EXISTS hall (
     CONSTRAINT fk_theater FOREIGN KEY (theater_id) REFERENCES theater(theater_id) ON DELETE CASCADE
 );
 
+CREATE TABLE IF NOT EXISTS seat (
+    seat_id INT AUTO_INCREMENT PRIMARY KEY,
+    hall_id INT NOT NULL,
+    seat_no INT NOT NULL,
+    row_no INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (hall_id) REFERENCES hall(hall_id)
+);
+
+
+CREATE TABLE IF NOT EXISTS seat_and_show_mapping (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    show_id INT NOT NULL,
+    seat_id INT NOT NULL,
+    status VARCHAR(20) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (show_id) REFERENCES show(show_id),
+    FOREIGN KEY (seat_id) REFERENCES seat(seat_id)
+);
+
+
 
 
 
